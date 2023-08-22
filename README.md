@@ -1,16 +1,16 @@
-# TÍTULO DO PROJETO
+# Currículo Fácil
 
 `CURSO`
 
 `DISCIPLINA`
 
-`SEMESTRE`
+`2 SEMESTRE`
 
 Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
 
 ## Integrantes
 
-* Nome completo do aluno 1
+* Mahavishnu Jneesh Afonso  
 * Nome completo do aluno 2
 * Nome completo do aluno 3
 * Nome completo do aluno 4
