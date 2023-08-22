@@ -11,7 +11,7 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 ## Integrantes
 
 * Mahavishnu Jneesh Afonso  
-* Nome completo do aluno 2
+* Allan Cesar Amaral Gomes
 * Nome completo do aluno 3
 * Luciano Emanuel Silva de Andrade Júnior
 
