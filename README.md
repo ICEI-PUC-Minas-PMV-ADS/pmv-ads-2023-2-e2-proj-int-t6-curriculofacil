@@ -1,10 +1,10 @@
 # Currículo Fácil
 
-`CURSO`
+`TECNOLOGIA EM ANÁLISE E DESENVOLVIMENTO DE SISTEMAS`
 
-`DISCIPLINA`
+`Projeto: Desenvolvimento de uma Aplicação Interativa - Grupo 04`
 
-`2 SEMESTRE`
+`2º SEMESTRE`
 
 Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
 
@@ -12,12 +12,12 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 
 * Mahavishnu Jneesh Afonso  
 * Allan Cesar Amaral Gomes
-* Nome completo do aluno 3
+* Philippe Ribeiro Mesquita
 * Luciano Emanuel Silva de Andrade Júnior
 
 ## Orientador
 
-* Nome completo do professor 1
+* Bernardo Jeunon de Alencar
 
 ## Instruções de utilização
 
