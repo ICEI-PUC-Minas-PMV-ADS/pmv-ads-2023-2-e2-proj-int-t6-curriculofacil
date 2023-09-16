@@ -1,103 +1,158 @@
 # Especificações do Projeto
 
-<span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
-
-Definição do problema e ideia de solução a partir da perspectiva do usuário. É composta pela definição do  diagrama de personas, histórias de usuários, requisitos funcionais e não funcionais além das restrições do projeto.
-
-Apresente uma visão geral do que será abordado nesta parte do documento, enumerando as técnicas e/ou ferramentas utilizadas para realizar a especificações do projeto
+A definição exata do problema e os pontos mais relevantes a serem tratados neste projeto foi consolidada com a participação dos usuários em um trabalho de imersão feita pelos membros da equipe a partir da observação dos usuários em seu local natural e por meio de entrevistas. Os detalhes levantados nesse processo foram consolidados na forma de personas e histórias de usuários. 
 
 ## Personas
 
-Pedro Paulo tem 26 anos, é arquiteto recém-formado e autônomo. Pensa em se desenvolver profissionalmente através de um mestrado fora do país, pois adora viajar, é solteiro e sempre quis fazer um intercâmbio. Está buscando uma agência que o ajude a encontrar universidades na Europa que aceitem alunos estrangeiros.
+As personas levantadas durante o processo de entendimento do problema são apresentadas na Figuras que se seguem. 
 
-Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
+<h3>Persona 1</h3>
+<table>
+      <tr>
+        <td>Nome/Idade</td>
+        <td>Marina - 25 anos</td>
+      </tr>
+      <tr>
+        <td>Profissão</td>
+        <td>Recém-formada em Design Gráfico</td>
+      </tr>
+      <tr>
+        <td>História</td>
+        <td>Marina acaba de se formar em Design Gráfico e está em busca de sua primeira oportunidade profissional. </td>
+      </tr>
+      <tr>
+        <td>Motivação</td>
+        <td>Ela deseja destacar suas habilidades de design de maneira única em seu currículo.</td>
+      </tr>
+      <tr>
+        <td>Desafio</td>
+        <td>Um site permitiria que Marina criasse um currículo interativo, com seções dedicadas a seu portfólio, projetos destacados. </td>
+      </tr>
+      <tr>
+        <td>Ferramenta em uso atualmente: </td>
+        <td>Word </td>
+      </tr>
+</table>
 
-> **Links Úteis**:
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Hotmart](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [Mapa de Empatia](https://resultadosdigitais.com.br/blog/mapa-da-empatia/)
-> - [Mapa de Stalkeholders](https://www.racecomunicacao.com.br/blog/como-fazer-o-mapeamento-de-stakeholders/)
->
-Lembre-se que você deve ser enumerar e descrever precisamente e personalizada todos os clientes ideais que sua solução almeja.
+<br><br>
+
+<h3>Persona 2</h3>
+<table>
+      <tr>
+        <td>Nome/Idade</td>
+        <td>Ricardo – 32 anos</td>
+      </tr>
+      <tr>
+        <td>Profissão</td>
+        <td>Engenheiro</td>
+      </tr>
+      <tr>
+        <td>História</td>
+        <td>Ricardo trabalhou por muitos anos como engenheiro, mas recentemente decidiu mudar para o campo de marketing digital.</td>
+      </tr>
+      <tr>
+        <td>Motivação</td>
+        <td>Ele gostaria de realçar suas habilidades transferíveis e sua paixão pela nova área em seu currículo.</td>
+      </tr>
+      <tr>
+        <td>Desafio</td>
+        <td>Com um site, ele poderia criar uma seção onde detalharia como suas habilidades de análise e resolução de problemas se relacionam com o marketing digital. Além disso, poderia incorporar links para artigos</td>
+      </tr>
+      <tr>
+        <td>Ferramenta em uso atualmente: </td>
+        <td>OnlineCv</td>
+      </tr>
+</table>
+
+<br><br>
+
+<h3>Persona 3</h3>
+<table>
+      <tr>
+        <td>Nome/Idade</td>
+        <td>Carla – 38 anos</td>
+      </tr>
+      <tr>
+        <td>Profissão</td>
+        <td>Graduada em Psicologia, com pós-graduação em Gestão de Pessoas</td>
+      </tr>
+      <tr>
+        <td>História</td>
+        <td>Carla é uma profissional dedicada e apaixonada pelo seu trabalho como gestora de Recursos Humanos. Ela trabalha em uma empresa de médio porte há mais de 10 anos e desempenha um papel crucial na seleção de novos talentos para a organização.</td>
+      </tr>
+      <tr>
+        <td>Motivação</td>
+        <td>No entanto, Carla enfrentou uma dificuldade recorrente no seu dia a dia: a busca e filtragem de currículos </td>
+      </tr>
+      <tr>
+        <td>Desafio</td>
+        <td>Carla deseja encontrar uma solução que simplifique e agilize seu processo de recrutamento, permitindo-lhe encontrar candidatos com as habilidades e experiência permitidas de maneira mais rápida e precisa.</td>
+      </tr>
+      <tr>
+        <td>Ferramenta em uso atualmente: </td>
+        <td>Canvas</td>
+      </tr>
+</table>
 
 ## Histórias de Usuários
 
-Com base na análise das personas forma identificadas as seguintes histórias de usuários:
+A partir da compreensão do dia a dia das personas identificadas para o projeto, foram registradas as seguintes histórias de usuários. 
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
+|Marina  | Poder criar de forma simples um currículo eficiente| Me candidatar a uma vaga com uma maior taxa de sucesso                |
+|Ricardo| Poder escolher qual estrutura de currículo se encaixa melhor a minha realidade| Para encaixar melhor as informações de experiencias |
+|Carla | Poder procurar um currículo sobre uma profissão especifica|Encontrar o melhor candidato  |
+|Ricardo| Poder ter disponível o currículo armazenado no site  |Para que empresas consigam me encontrar |
+|Maria| | Permitir que possam administrar contas |
+|Maria| Ter opções de baixar ou compartilhar o currículo. | Para que possa imprimi-lo ou compartilhá-lo em minhas redes  |
+|Carla |Encontrar um candidato por meio de suas habilidades (hard skills)|Para encontrar candidatos que combinem com a cultura da empresa|
+|Ricardo |Conseguir obter algum feedback sobre meu currículo|Para saber se obtive algum resultado com aquele currículo  |
+|Ricardo|poder escolher templates diferentes para o mesmo currículo| Para ter outras opções e poder escolher a que melhor me atender  |
 
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
-
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-> - [User Stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
-> - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
-> - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
 
 ## Requisitos
 
-As tabelas que se seguem apresentam os requisitos funcionais e não funcionais que detalham o escopo do projeto.
+O escopo funcional do projeto é definido por meio dos requisitos funcionais que descrevem as possibilidades interação dos usuários, bem como os requisitos não funcionais que descrevem os aspectos que o sistema deverá apresentar de maneira geral. Estes requisitos são apresentados a seguir. 
 
 ### Requisitos Funcionais
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+|RF-001| Os usuários registrados devem poder fazer login de maneira segura, usando suas credenciais de conta  | ALTA | 
+|RF-002| Os usuários ou empresa devem ter a capacidade de criar, editar e excluir seus perfis incluindo a adição ou remoção de informações| ALTA |
+|RF-003| Os usuários devem ter a opção de personalizar o design e a aparência visual de seus currículos, escolhendo entre diferentes modelos ou estilos. | ALTA |
+|RF-004| Deve ter disponivel a possibilidade de contatar usuários aptos para determinada empresa ou vaga | MÉDIA |
+|RF-005| Os usuários devem ser capazes de visualizar seus currículos no site antes de decidirem torná-los públicos ou compartilhá-los.    | ALTA |
+|RF-006| Os usuários devem ter opções para definir a visibilidade de seus currículos, podendo torná-los públicos, privados ou acessíveis apenas por meio de links diretos.| MÉDIA |
+|RF-007| Os empregadores ou recrutadores devem ser capazes de pesquisar currículos com base em critérios como habilidades, experiência ou localização.| MÉDIA |
+|RF-008| Os usuários devem ter a opção de vincular seus perfis de redes sociais ao currículo, para fornecer mais informações sobre si mesmos.| BAIXA |
+|RF-009| Os usuários devem poder compartilhar seus currículos por meio de links ou imprimir versões em formato legível. | BAIXA |
+|RF-010| Os usuários devem poder adicionar seções personalizadas ao currículo, como um resumo profissional, portfólio ou prêmios.   | BAIXA |
+|RF-011| O site deve exibir os comentários registrados juntamente com a notícia exibida. | BAIXA |
+
 
 ### Requisitos não Funcionais
 
+A tabela a seguir apresenta os requisitos não funcionais que o projeto deverá atender. 
+
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
-
-Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
-
-- [Requisitos Funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
+|RNF-001| O site deve se acessível na web.  | ALTA | 
+|RNF-002| O site deverá ser responsivo permitindo a visualização em um celular de forma adequada.  |  ALTA | 
+|RNF-003| Funcionamento do site 24/7  |  MÉDIA | 
+|RNF-004| O projeto deve ser entregue no final do semestre letivo |  BAIXA | 
 
 ## Restrições
 
-O projeto está restrito pelos itens apresentados na tabela a seguir.
+As questões que limitam a execução desse projeto e que se configuram como obrigações claras para o desenvolvimento do projeto em questão são apresentadas na tabela a seguir. 
 
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
-|01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
-
-
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
-
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
+|RE-01| O projeto deverá ser entregue no final do semestre letivo, não podendo extrapolar a data de 06/12/2023. |
+|RE-02| O aplicativo deve se restringir às tecnologias básicas da Web no Frontend e Backend |
+|RE-03| O projeto deve ser construído apenas por pessoas da equipe |
 
 ## Diagrama de Casos de Uso
 
-O diagrama de casos de uso é o próximo passo após a elicitação de requisitos, que utiliza um modelo gráfico e uma tabela com as descrições sucintas dos casos de uso e dos atores. Ele contempla a fronteira do sistema e o detalhamento dos requisitos funcionais com a indicação dos atores, casos de uso e seus relacionamentos. 
-
-As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de Casos de Uso”.
-
-> **Links Úteis**:
-> - [Criando Casos de Uso](https://www.ibm.com/docs/pt-br/elm/6.0?topic=requirements-creating-use-cases)
-> - [Como Criar Diagrama de Caso de Uso: Tutorial Passo a Passo](https://gitmind.com/pt/fazer-diagrama-de-caso-uso.html/)
-> - [Lucidchart](https://www.lucidchart.com/)
-> - [Astah](https://astah.net/)
-> - [Diagrams](https://app.diagrams.net/)
+<img src="img/Currículo fácil.jpeg" alt="Diagrama de Casos de Uso">
