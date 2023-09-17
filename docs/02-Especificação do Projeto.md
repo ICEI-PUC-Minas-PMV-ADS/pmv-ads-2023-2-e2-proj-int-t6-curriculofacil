@@ -129,7 +129,6 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 |RF-008| Os usuários devem ter a opção de vincular seus perfis de redes sociais ao currículo, para fornecer mais informações sobre si mesmos.| BAIXA |
 |RF-009| Os usuários devem poder compartilhar seus currículos por meio de links ou imprimir versões em formato legível. | BAIXA |
 |RF-010| Os usuários devem poder adicionar seções personalizadas ao currículo, como um resumo profissional, portfólio ou prêmios.   | BAIXA |
-|RF-011| O site deve exibir os comentários registrados juntamente com a notícia exibida. | BAIXA |
 
 
 ### Requisitos não Funcionais
