@@ -93,6 +93,69 @@ As personas levantadas durante o processo de entendimento do problema são apres
         <td>Canvas</td>
       </tr>
 </table>
+<br><br>
+<h3>Persona 4</h3>
+<table>
+      <tr>
+        <td>Nome/Idade</td>
+        <td>Mariana – 18 anos</td>
+      </tr>
+      <tr>
+        <td>Profissão</td>
+        <td>Estudante de T.I.</td>
+      </tr>
+      <tr>
+        <td>História</td>
+        <td>Mariana tem bastante dificuldade em montar um currículo para conseguir seu primeiro emprego, sem saber o que colocar e como descrever suas habilidades e nem como organizá-los da melhor forma. 
+
+</td>
+      </tr>
+      <tr>
+        <td>Motivação</td>
+        <td>Conseguir o primeiro emprego na sua área de estudos.</td>
+      </tr>
+      <tr>
+        <td>Desafio</td>
+        <td>Mariana gostaria de uma plataforma que pudesse ajudá-la a construir um currículo que fosse bom o suficiente para surpreender quem fosse entrevistá-la.</td>
+      </tr>
+      <tr>
+        <td>Ferramenta em uso atualmente: </td>
+        <td>Canvas</td>
+      </tr>
+</table>
+
+<h3>Persona 5</h3>
+<table>
+      <tr>
+        <td>Nome/Idade</td>
+        <td>Vanderlei  – 76 anos</td>
+      </tr>
+      <tr>
+        <td>Profissão</td>
+        <td>Contador.</td>
+      </tr>
+      <tr>
+        <td>História</td>
+        <td>Varderlei trabalhou toda sua vida com contabilidade em uma grande rede de supermercados, porém está a alguns anos fora do mercado de trabalho.
+
+
+</td>
+      </tr>
+      <tr>
+        <td>Motivação</td>
+        <td>Retornar para o mercado de trabalho.</td>
+      </tr>
+      <tr>
+        <td>Desafio</td>
+        <td>Ele tem grande dificuldade em construir um currículo que o ajude a se realocar no mercado de trabalho dentro da sua área de trabalho, que sempre foi focada em redes de supermercados. 
+
+Ele necessita de uma plataforma que consiga o ajudar com a estruturação de seu currículo e com o que pode ser melhorado para que ele possa voltar ao mercado de trabalho o mais rápido possível</td>
+      </tr>
+      <tr>
+        <td>Ferramenta em uso atualmente: </td>
+        <td>NotePad</td>
+      </tr>
+</table>
 
 ## Histórias de Usuários
 
