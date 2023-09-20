@@ -13,7 +13,9 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 * Mahavishnu Jneesh Afonso  
 * Allan Cesar Amaral Gomes
 * Philippe Ribeiro Mesquita
-* Luciano Emanuel Silva de Andrade Júnior
+* João Gabriel Pereira da Silva 
+* Rafael Santana de Oliveira 
+
 
 ## Orientador
 
