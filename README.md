@@ -6,7 +6,7 @@
 
 `2º SEMESTRE`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+Projeto que está sendo desenvolvido, é uma plataforma simplificada e de fácil utilização para produção e procura de curriculos.
 
 ## Integrantes
 
@@ -15,7 +15,6 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 * Philippe Ribeiro Mesquita
 * João Gabriel Pereira da Silva 
 * Rafael Santana de Oliveira 
-
 
 ## Orientador
 
