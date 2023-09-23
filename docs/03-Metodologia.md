@@ -54,6 +54,9 @@ Equipe de Design:
 
 Para organização e distribuição das tarefas do projeto, a equipe está utilizando o Github Projects.
   
+  <img src="img/kanban.jpg">
+
+  
 ### Processo
 
 O processo de desenvolvimento consiste em: Reunião de planejamento na segunda, acompanhamento pelo whatzap com trocas de mensagens em formato de dayli e retrospectiva. A Cerimônia de planejamento e realizada no início da sprint a fim de definir as tarefas a serem executadas. Reunião de revisão de acompanhamento do que está sendo feito nas sextas pelo discord.
