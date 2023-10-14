@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +19,51 @@ namespace UniversityProject.Controllers
         public UsuariosController(ApplicationDbContext context)
         {
             _context = context;
+        }
+
+        //POST: Login   
+        public async Task<IActionResult> Login(Usuario usuario)
+        {
+            var userExistence = await this._context.Usuario.FindAsync(usuario.ID);
+
+            if (userExistence == null)
+            {
+                ViewBag.Message = "Email ou Senha invalidos, tente novamente !";
+                return View();
+            }
+
+            if(usuario.Pass == userExistence.Pass)
+            {
+                var claims = new List<Claim>
+                {
+
+                    new Claim(ClaimTypes.Name, userExistence.Name),
+                    new Claim(ClaimTypes.NameIdentifier, userExistence.ID.ToString()),
+                    //new Claim(ClaimTypes.Role, userExistence.Name.ToString())
+                };
+
+                var usuarioIdentity = new ClaimsIdentity(claims, "login");
+                ClaimsPrincipal principal = new ClaimsPrincipal(usuarioIdentity);
+
+                var props = new AuthenticationProperties
+                {
+                    AllowRefresh = true,
+                    ExpiresUtc = DateTime.UtcNow.ToLocalTime().AddHours(8),
+                    IsPersistent = true
+
+                };
+
+                await HttpContext.SignInAsync(principal, props);
+
+                return Redirect("Create");
+            }
+            else
+            {
+                ViewBag.Message = "Usuário e/ou senha invalidos!";
+            }
+
+
+            return View("Delete");
         }
 
         // GET: Usuarios
