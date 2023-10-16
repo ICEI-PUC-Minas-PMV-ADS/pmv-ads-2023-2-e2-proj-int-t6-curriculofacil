@@ -21,14 +21,20 @@ namespace UniversityProject.Controllers
             _context = context;
         }
 
-        //POST: Login   
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        //POST: Login
+        [HttpPost]
         public async Task<IActionResult> Login(Usuario usuario)
         {
             var userExistence = await this._context.Usuario.FindAsync(usuario.ID);
 
             if (userExistence == null)
             {
-                ViewBag.Message = "Email ou Senha invalidos, tente novamente !";
+                ViewBag.Message = "ID ou Senha invalidos, tente novamente!";
                 return View();
             }
 
@@ -55,7 +61,7 @@ namespace UniversityProject.Controllers
 
                 await HttpContext.SignInAsync(principal, props);
 
-                return Redirect("Create");
+                return Redirect("/");
             }
             else
             {
@@ -63,7 +69,14 @@ namespace UniversityProject.Controllers
             }
 
 
-            return View("Delete");
+            return View();
+        }
+
+        public  async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+
+            return RedirectToAction("Login", "Usuarios");
         }
 
         // GET: Usuarios
