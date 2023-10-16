@@ -8,7 +8,7 @@ namespace UniversityProject.Models
         public int ID { get; set; }
 
         public string Name { get; set; }
-
+        [DataType(DataType.Password)]
         public string Pass { get; set; }
 
     }
