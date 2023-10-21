@@ -30,11 +30,16 @@ namespace UniversityProject.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(Usuario usuario)
         {
-            var userExistence = await this._context.Usuario.FindAsync(usuario.ID);
+            String teste = "teste@gmail.com";
+            //var userExistence = await this._context.Usuario.FindAsync(usuario.ID);
+
+            var userExistence = this._context.Usuario.FirstOrDefault(u => u.Email == usuario.Email);
+
+            Console.Write(userExistence);
 
             if (userExistence == null)
             {
-                ViewBag.Message = "ID ou Senha invalidos, tente novamente!";
+                ViewBag.Message = "Name ou Senha invalidos, tente novamente!";
                 return View();
             }
 
@@ -116,13 +121,14 @@ namespace UniversityProject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Pass")] Usuario usuario)
+        public async Task<IActionResult> Create([Bind("ID,Name,Email,Pass")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
+                return RedirectToAction("Login");
             }
             return View(usuario);
         }
