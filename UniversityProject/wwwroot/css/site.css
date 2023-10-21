@@ -16,3 +16,28 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.custom-bg {
+    background-color: #1b263b;
+}
+
+.btn-custom {
+    color: #fff;
+    background-color: #1b263b;
+    border-color: #1b263b;
+}
+    .btn-custom:hover {
+        color: #fff;
+        background-color: #415a77;
+        border-color: #415a77;
+    }
+
+
+h3 {
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    color: #dc3545;
+}
+
