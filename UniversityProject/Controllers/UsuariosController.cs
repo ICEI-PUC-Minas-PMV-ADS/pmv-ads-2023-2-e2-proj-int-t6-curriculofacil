@@ -30,7 +30,7 @@ namespace UniversityProject.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(Usuario usuario)
         {
-            String teste = "teste@gmail.com";
+            //String teste = "teste@gmail.com";
             //var userExistence = await this._context.Usuario.FindAsync(usuario.ID);
 
             var userExistence = this._context.Usuario.FirstOrDefault(u => u.Email == usuario.Email);
@@ -127,8 +127,8 @@ namespace UniversityProject.Controllers
             {
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
-                //return RedirectToAction(nameof(Index));
-                return RedirectToAction("Login");
+                return RedirectToAction(nameof(Index));
+                //return RedirectToAction("Login");
             }
             return View(usuario);
         }

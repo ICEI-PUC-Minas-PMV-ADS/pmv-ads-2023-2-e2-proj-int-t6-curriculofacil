@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UniversityProject.Data;
 
@@ -10,9 +11,11 @@ using UniversityProject.Data;
 namespace UniversityProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231021113942_CurriculoTableWithUsuariosRelation")]
+    partial class CurriculoTableWithUsuariosRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -23,11 +26,11 @@ namespace UniversityProject.Migrations
 
             modelBuilder.Entity("UniversityProject.Models.Curriculo", b =>
                 {
-                    b.Property<int>("CVID")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CVID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -41,9 +44,6 @@ namespace UniversityProject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ID")
-                        .HasColumnType("int");
-
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -55,7 +55,7 @@ namespace UniversityProject.Migrations
                     b.Property<int>("UsuarioID")
                         .HasColumnType("int");
 
-                    b.HasKey("CVID");
+                    b.HasKey("ID");
 
                     b.HasIndex("UsuarioID");
 
@@ -90,12 +90,17 @@ namespace UniversityProject.Migrations
             modelBuilder.Entity("UniversityProject.Models.Curriculo", b =>
                 {
                     b.HasOne("UniversityProject.Models.Usuario", "Usuario")
-                        .WithMany()
+                        .WithMany("Curriculos")
                         .HasForeignKey("UsuarioID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("UniversityProject.Models.Usuario", b =>
+                {
+                    b.Navigation("Curriculos");
                 });
 #pragma warning restore 612, 618
         }
