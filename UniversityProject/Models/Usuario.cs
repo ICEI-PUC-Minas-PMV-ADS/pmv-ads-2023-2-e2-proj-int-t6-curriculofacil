@@ -15,6 +15,5 @@ namespace UniversityProject.Models
         [DataType(DataType.Password)]
         public string Pass { get; set; }
 
-        public ICollection<Curriculo> Curriculos { get; set;}
     }
 }
