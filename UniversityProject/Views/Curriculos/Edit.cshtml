@@ -12,11 +12,7 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-<<<<<<< HEAD
             <input type="hidden" asp-for="CVID" />
-=======
-            <input type="hidden" asp-for="ID" />
->>>>>>> parent of c52abab (exclui views sem controller)
             <div class="form-group">
                 <label asp-for="FirstName" class="control-label"></label>
                 <input asp-for="FirstName" class="form-control" />
@@ -38,7 +34,6 @@
                 <span asp-validation-for="Address" class="text-danger"></span>
             </div>
             <div class="form-group">
-<<<<<<< HEAD
                 <label asp-for="City" class="control-label"></label>
                 <input asp-for="City" class="form-control" />
                 <span asp-validation-for="City" class="text-danger"></span>
@@ -61,15 +56,6 @@
             <div class="form-group">
                 <label asp-for="ID" class="control-label"></label>
                 <select asp-for="ID" class="form-control" asp-items="ViewBag.ID"></select>
-=======
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ID" class="control-label"></label>
-                <select asp-for="ID" class="form-control" asp-items="ViewBag.UsuarioID"></select>
->>>>>>> parent of c52abab (exclui views sem controller)
                 <span asp-validation-for="ID" class="text-danger"></span>
             </div>
             <div class="form-group">
