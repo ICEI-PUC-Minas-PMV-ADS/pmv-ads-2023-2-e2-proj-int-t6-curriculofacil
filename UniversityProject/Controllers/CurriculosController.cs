@@ -55,14 +55,14 @@ namespace UniversityProject.Controllers
 
         // POST: Curriculos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598
+        [HttpPost("Create")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CurriculoID,FirstName,LastName,PhoneNumber,Address,City,PostalCode,Estate,Objetive,UsuarioId")] Curriculo curriculo)
         {
             try
             {
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
                     _context.Add(curriculo);
                     await _context.SaveChangesAsync();
@@ -76,7 +76,8 @@ namespace UniversityProject.Controllers
                 // Registre a exceção para fins de depuração.
                 // Você pode usar o mecanismo de log ou simplesmente exibi-la no console.
                 Console.WriteLine(ex);
-
+                Console.WriteLine("ERRO");
+              
                 // Redirecione para uma página de erro ou faça outra ação adequada em caso de exceção.
                 // Por exemplo, você pode redirecionar para uma página de erro personalizada.
                 return View("Erro"); // Página de erro personalizada
@@ -111,7 +112,7 @@ namespace UniversityProject.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {
