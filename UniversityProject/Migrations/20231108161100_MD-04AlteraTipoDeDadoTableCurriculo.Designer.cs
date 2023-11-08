@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UniversityProject.Data;
 
@@ -10,9 +11,11 @@ using UniversityProject.Data;
 namespace UniversityProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231108161100_MD-04AlteraTipoDeDadoTableCurriculo")]
+    partial class MD04AlteraTipoDeDadoTableCurriculo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -99,12 +102,17 @@ namespace UniversityProject.Migrations
             modelBuilder.Entity("UniversityProject.Models.Curriculo", b =>
                 {
                     b.HasOne("UniversityProject.Models.Usuario", "Usuario")
-                        .WithMany()
+                        .WithMany("Curriculos")
                         .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("UniversityProject.Models.Usuario", b =>
+                {
+                    b.Navigation("Curriculos");
                 });
 #pragma warning restore 612, 618
         }
