@@ -19,7 +19,7 @@ namespace UniversityProject.Models
 
         [Display(Name = "Telefone")]
         [Required(ErrorMessage = "Obrigatorio informar o Telefone")]
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         [Display(Name = "Endereço")]
         [Required(ErrorMessage = "Obrigatorio informar o Endereço")]
@@ -31,7 +31,7 @@ namespace UniversityProject.Models
 
         [Display(Name = "Cep")]
         [Required(ErrorMessage = "Obrigatorio informar o Cep")]
-        public int PostalCode { get; set; }
+        public string PostalCode { get; set; }
 
         [Display(Name = "Estado")]
         [Required(ErrorMessage = "Obrigatorio informar o Estado")]
@@ -41,9 +41,9 @@ namespace UniversityProject.Models
         [Required(ErrorMessage = "Obrigatorio informar o Objetivo")]
         public string Objetive { get; set; }
 
-
-        [ForeignKey("Usuario")]
         public int UsuarioId { get; set; }
+
+        [ForeignKey("UsuarioId")]
         public Usuario Usuario { get; set; }
     }
 }
