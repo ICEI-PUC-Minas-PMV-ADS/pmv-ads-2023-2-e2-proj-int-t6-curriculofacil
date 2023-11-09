@@ -62,7 +62,7 @@ namespace UniversityProject.Controllers
         {
             try
             {
-                if (!ModelState.IsValid)
+                if (ModelState.IsValid)
                 {
                     _context.Add(curriculo);
                     await _context.SaveChangesAsync();
@@ -112,7 +112,7 @@ namespace UniversityProject.Controllers
                 return NotFound();
             }
 
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 try
                 {

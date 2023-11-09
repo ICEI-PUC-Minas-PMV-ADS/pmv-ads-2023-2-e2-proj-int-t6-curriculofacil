@@ -41,9 +41,9 @@ namespace UniversityProject.Models
         [Required(ErrorMessage = "Obrigatorio informar o Objetivo")]
         public string Objetive { get; set; }
 
+        [ForeignKey("UsuarioId")]
         public int UsuarioId { get; set; }
 
-        [ForeignKey("UsuarioId")]
-        public Usuario Usuario { get; set; }
+        public Usuario? Usuario { get; set; }
     }
 }
