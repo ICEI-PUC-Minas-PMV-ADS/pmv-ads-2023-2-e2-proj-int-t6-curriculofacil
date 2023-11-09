@@ -16,6 +16,6 @@ namespace UniversityProject.Models
         public string Pass { get; set; }
 
 
-        //public ICollection<Curriculo> Curriculo { get; set; }
+        public ICollection<Curriculo>? Curriculo { get; set; }
     }
 }
