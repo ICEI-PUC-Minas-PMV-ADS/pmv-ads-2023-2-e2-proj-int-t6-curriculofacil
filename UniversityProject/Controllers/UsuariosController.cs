@@ -127,8 +127,8 @@ namespace UniversityProject.Controllers
             {
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-                //return RedirectToAction("Login");
+                //return RedirectToAction(nameof(Index));
+                return RedirectToAction("Login");
             }
             return View(usuario);
         }

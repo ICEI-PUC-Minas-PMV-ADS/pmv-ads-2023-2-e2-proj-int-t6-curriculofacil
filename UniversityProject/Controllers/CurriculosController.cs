@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -60,10 +61,16 @@ namespace UniversityProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CurriculoID,FirstName,LastName,PhoneNumber,Address,City,PostalCode,Estate,Objetive,UsuarioId")] Curriculo curriculo)
         {
+            ClaimsPrincipal userPrincipal = HttpContext.User; // Isso pode variar dependendo do contexto (ASP.NET MVC, ASP.NET Core, etc.)
+            ClaimsIdentity userIdentity = userPrincipal.Identity as ClaimsIdentity;
+            //ID DO USUARIO LOGADO
+            var userID = userIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
+
             try
             {
                 if (ModelState.IsValid)
                 {
+                    curriculo.UsuarioId = int.Parse(userID);
                     _context.Add(curriculo);
                     await _context.SaveChangesAsync();
                     return RedirectToAction("Index");
