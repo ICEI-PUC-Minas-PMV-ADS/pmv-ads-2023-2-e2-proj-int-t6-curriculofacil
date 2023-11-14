@@ -14,6 +14,20 @@
                 minutos
             </h1>
             <p class="lead">Preencha seus dados pessoais e profissionais. Depois, é só fazer download.</p>
+
+            <div>
+                @if (User.Identity.IsAuthenticated)
+                {
+
+                    <a href="/Curriculos/Create" class="btn btn-custom btn-lg w-100">Criar Currículo</a>
+
+                }
+                else
+                {
+                    
+                }
+            </div>
+
         </div>
     </div>
 </div>
