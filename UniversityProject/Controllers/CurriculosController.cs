@@ -178,5 +178,13 @@ namespace UniversityProject.Controllers
         {
           return (_context.Curriculo?.Any(e => e.CurriculoID == id)).GetValueOrDefault();
         }
+
+
+        //PARTE DE BUSCAR CURRICULOS
+        public async Task<IActionResult> Find()
+        {
+            var applicationDbContext = _context.Curriculo.Include(c => c.Usuario);
+            return View(await applicationDbContext.ToListAsync()); 
+        }
     }
 }
