@@ -13,5 +13,6 @@ namespace UniversityProject.Data
 
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<Curriculo> Curriculo { get; set; }
+        public DbSet<UniversityProject.Models.HistoricoProfissional>? HistoricoProfissional { get; set; }
     }
 }
