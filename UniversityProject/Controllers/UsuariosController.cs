@@ -50,7 +50,7 @@ namespace UniversityProject.Controllers
 
                     new Claim(ClaimTypes.Name, userExistence.Name),
                     new Claim(ClaimTypes.NameIdentifier, userExistence.ID.ToString()),
-                    //new Claim(ClaimTypes.Role, userExistence.Name.ToString())
+                    new Claim(ClaimTypes.Role, userExistence.Perfil.ToString())
                 };
 
                 var usuarioIdentity = new ClaimsIdentity(claims, "login");
@@ -121,7 +121,7 @@ namespace UniversityProject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Email,Pass")] Usuario usuario)
+        public async Task<IActionResult> Create([Bind("ID,Name,Email,Pass,Perfil")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
@@ -154,7 +154,7 @@ namespace UniversityProject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Pass")] Usuario usuario)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Pass,Email")] Usuario usuario)
         {
             if (id != usuario.ID)
             {
