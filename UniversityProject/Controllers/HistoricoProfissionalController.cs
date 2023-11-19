@@ -54,8 +54,12 @@ namespace UniversityProject.Controllers
         }
 
         // GET: HistoricoProfissional/Create
-        public IActionResult Create()
+                    //obtem id do curriculo
+        public IActionResult Create(int idSegundoRegistro)
         {
+            // Armazena o ID do primeiro registro na TempData
+            TempData["idSegundoRegistro"] = idSegundoRegistro;
+
             ViewData["CurriculoID"] = new SelectList(_context.Curriculo, "CurriculoID", "Objetive");
             return View();
         }
@@ -69,23 +73,30 @@ namespace UniversityProject.Controllers
         {   
             if (ModelState.IsValid)
             {
-                _context.Add(historicoProfissional);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index","Curriculos");
+                if (TempData.TryGetValue("idSegundoRegistro", out object idSegundoRegistroObj) && idSegundoRegistroObj is int idSegundoRegistro)
+                {
+                    // Atribui o ID do primeiro registro ao modelo
+                    historicoProfissional.CurriculoID = idSegundoRegistro;
+
+                    _context.Add(historicoProfissional);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index", "Curriculos");
+                }
             }
             ViewData["CurriculoID"] = new SelectList(_context.Curriculo, "CurriculoID", "Objetive", historicoProfissional.CurriculoID);
             return View(historicoProfissional);
         }
         
         // GET: HistoricoProfissional/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? curriculoPraEditHistorico)
         {
-            if (id == null || _context.HistoricoProfissional == null)
+            if (curriculoPraEditHistorico == null || _context.HistoricoProfissional == null)
             {
                 return NotFound();
             }
 
-            var historicoProfissional = await _context.HistoricoProfissional.FindAsync(id);
+            // Encontre a formação com base no curriculoIDpraEdit
+            var historicoProfissional = await _context.HistoricoProfissional.FirstOrDefaultAsync(f => f.CurriculoID == curriculoPraEditHistorico);
             if (historicoProfissional == null)
             {
                 return NotFound();
@@ -99,9 +110,9 @@ namespace UniversityProject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("HistoricoProfissinalID,Cargo,Empregador,Cidade,Estado,DataInicio,DataTermino,CurriculoID")] HistoricoProfissional historicoProfissional)
+        public async Task<IActionResult> Edit(int curriculoPraEditHistorico, [Bind("HistoricoProfissinalID,Cargo,Empregador,Cidade,Estado,DataInicio,DataTermino,CurriculoID")] HistoricoProfissional historicoProfissional)
         {
-            if (id != historicoProfissional.HistoricoProfissinalID)
+            if (curriculoPraEditHistorico != historicoProfissional.CurriculoID)
             {
                 return NotFound();
             }
@@ -110,8 +121,20 @@ namespace UniversityProject.Controllers
             {
                 try
                 {
+                    // Obtém a formação original do banco de dados
+                    var originalHistorico = await _context.HistoricoProfissional.AsNoTracking().FirstOrDefaultAsync(f => f.HistoricoProfissinalID == historicoProfissional.HistoricoProfissinalID);
+
+                    // Copia o CurriculoID original para o modelo
+                    historicoProfissional.CurriculoID = originalHistorico.CurriculoID;
+
+                    // Atualiza a formação no contexto
                     _context.Update(historicoProfissional);
+
+                    // Salva as mudanças no banco de dados
                     await _context.SaveChangesAsync();
+                 
+                    // Redireciona para a ação "Edit" do controlador "HistoricoProfissional" com o parâmetro "curriculoPraEditHistorico"
+                    return RedirectToAction("Index", "Curriculos");
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -124,7 +147,7 @@ namespace UniversityProject.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
             }
             ViewData["CurriculoID"] = new SelectList(_context.Curriculo, "CurriculoID", "Objetive", historicoProfissional.CurriculoID);
             return View(historicoProfissional);

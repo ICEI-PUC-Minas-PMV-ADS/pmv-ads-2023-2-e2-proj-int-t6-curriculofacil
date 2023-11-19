@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -46,10 +46,16 @@ namespace UniversityProject.Controllers
         }
 
         // GET: Formacao/Create
-        public IActionResult Create()
+        public IActionResult Create(int idPrimeiroRegistro)
         {
-            ViewData["CurriculoID"] = new SelectList(_context.Curriculo, "CurriculoID", "Address");
+            // Armazena o ID do primeiro registro na TempData
+            TempData["IdPrimeiroRegistro"] = idPrimeiroRegistro;
+
+            ViewData["CurriculoID"] = new SelectList(_context.Curriculo, "CurriculoID", "CurriculoID");
             return View();
+
+            //ViewData["CurriculoID"] = new SelectList(_context.Curriculo, "CurriculoID", "Objective");
+            //return View();
         }
 
         // POST: Formacao/Create
@@ -61,27 +67,38 @@ namespace UniversityProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(formacao);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Create","HistoricoProfissional");
+                if (TempData.TryGetValue("IdPrimeiroRegistro", out object idPrimeiroRegistroObj) && idPrimeiroRegistroObj is int idPrimeiroRegistro)
+                {
+                    // Atribui o ID do primeiro registro ao modelo
+                    formacao.CurriculoID = idPrimeiroRegistro;
+                    _context.Add(formacao);
+                    await _context.SaveChangesAsync();
+
+                    int idSegundoRegistro = formacao.CurriculoID;
+
+                    return RedirectToAction("Create", "HistoricoProfissional", new {idSegundoRegistro});
+                }
             }
-            ViewData["CurriculoID"] = new SelectList(_context.Curriculo, "CurriculoID", "Address", formacao.CurriculoID);
+            //ViewData["CurriculoID"] = new SelectList(_context.Curriculo, "CurriculoID", "Objective", formacao.CurriculoID);
             return View(formacao);
         }
 
         // GET: Formacao/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? curriculoIDpraEdit)
         {
-            if (id == null || _context.Formacao == null)
+            if (curriculoIDpraEdit == null)
             {
                 return NotFound();
             }
 
-            var formacao = await _context.Formacao.FindAsync(id);
+            // Encontre a formação com base no curriculoIDpraEdit
+            var formacao =  await _context.Formacao.FirstOrDefaultAsync(f => f.CurriculoID == curriculoIDpraEdit);
+
             if (formacao == null)
             {
                 return NotFound();
             }
+
             ViewData["CurriculoID"] = new SelectList(_context.Curriculo, "CurriculoID", "Address", formacao.CurriculoID);
             return View(formacao);
         }
@@ -91,9 +108,9 @@ namespace UniversityProject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FormacaoID,InstDeEnsino,Estado,Diploma,CampoDeEstudo,Situacao,DataInicio,DataTermino,CurriculoID")] Formacao formacao)
+        public async Task<IActionResult> Edit(int curriculoIDpraEdit, [Bind("FormacaoID,InstDeEnsino,Estado,Diploma,CampoDeEstudo,Situacao,DataInicio,DataTermino")] Formacao formacao)
         {
-            if (id != formacao.FormacaoID)
+            if (curriculoIDpraEdit != formacao.CurriculoID)
             {
                 return NotFound();
             }
@@ -102,8 +119,20 @@ namespace UniversityProject.Controllers
             {
                 try
                 {
+                    // Obtém a formação original do banco de dados
+                    var originalFormacao = await _context.Formacao.AsNoTracking().FirstOrDefaultAsync(f => f.FormacaoID == formacao.FormacaoID);
+
+                    // Copia o CurriculoID original para o modelo
+                    formacao.CurriculoID = originalFormacao.CurriculoID;
+
+                    // Atualiza a formação no contexto
                     _context.Update(formacao);
+
+                    // Salva as mudanças no banco de dados
                     await _context.SaveChangesAsync();
+                    int curriculoPraEditHistorico = formacao.CurriculoID;
+                    // Redireciona para a ação "Edit" do controlador "HistoricoProfissional" com o parâmetro "curriculoPraEditHistorico"
+                    return RedirectToAction("Edit", "HistoricoProfissional", new { curriculoPraEditHistorico });
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -116,8 +145,8 @@ namespace UniversityProject.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
-            }
+             }
+
             ViewData["CurriculoID"] = new SelectList(_context.Curriculo, "CurriculoID", "Address", formacao.CurriculoID);
             return View(formacao);
         }

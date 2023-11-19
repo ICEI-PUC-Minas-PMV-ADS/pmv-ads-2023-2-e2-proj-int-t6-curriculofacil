@@ -84,7 +84,13 @@ namespace UniversityProject.Controllers
                     _context.Add(curriculo);
                     await _context.SaveChangesAsync();
 
-                    return RedirectToAction("Create", "Formacao");
+                    //obtem id do curriculo
+                    int idPrimeiroRegistro = curriculo.CurriculoID;
+                    return RedirectToAction("Create", "Formacao", new { idPrimeiroRegistro });
+                    //return RedirectToAction("Create", "Formacao");
+                    //TESTES
+                
+
                 }
 
                 ViewData["UsuarioId"] = new SelectList(_context.Usuario, "ID", "ID", curriculo.UsuarioId);
@@ -153,7 +159,10 @@ namespace UniversityProject.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                //obtem id do curriculo
+                int curriculoIDpraEdit = curriculo.CurriculoID;
+                return RedirectToAction("Edit", "Formacao", new { curriculoIDpraEdit });
+                //return RedirectToAction(nameof(Index));
             }
             ViewData["UsuarioId"] = new SelectList(_context.Usuario, "ID", "ID", curriculo.UsuarioId);
             return View(curriculo);
