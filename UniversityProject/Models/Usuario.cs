@@ -10,12 +10,15 @@ namespace UniversityProject.Models
         public int ID { get; set; }
 
         [Required(ErrorMessage = "Obrigatorio informar nome.")]
+        [Display(Name = "Nome")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Obrigatorio informar a E-mail.")]
+        [Display(Name = "E-mail")]
         public string Email { get; set; }
 
         [Required(ErrorMessage ="Obrigatorio informar a senha.")]
+        [Display(Name = "Senha")]
         [DataType(DataType.Password)]
         public string Pass { get; set; }
 
