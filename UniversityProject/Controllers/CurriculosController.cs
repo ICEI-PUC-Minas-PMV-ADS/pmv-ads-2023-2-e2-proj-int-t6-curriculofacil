@@ -68,7 +68,7 @@ namespace UniversityProject.Controllers
                 {
                     _context.Add(curriculo);
                     await _context.SaveChangesAsync();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Create","Formacao");
                 }
                 ViewData["UsuarioId"] = new SelectList(_context.Usuario, "ID", "ID", curriculo.UsuarioId);
                 return View(curriculo);
