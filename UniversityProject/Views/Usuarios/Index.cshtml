@@ -4,7 +4,8 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Gerenciar Perfil</h1>
+<h1 class="h3 mb-3 mt-5 fw-normal">Gerenciar Perfil</h1>
+<hr class="mb-5" />
 
 <table class="table">
     <thead>
@@ -34,9 +35,9 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a class="btn btn-custom" asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.ID">Editar</a> |
+                <a class="btn btn-custom" asp-action="Details" asp-route-id="@item.ID">Detalhes</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ID">Apagar</a>
             </td>
         </tr>
 }
