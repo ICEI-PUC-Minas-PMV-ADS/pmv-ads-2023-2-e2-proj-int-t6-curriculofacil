@@ -1,0 +1,77 @@
+﻿@model IEnumerable<UniversityProject.Models.Formacao>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.InstDeEnsino)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Diploma)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CampoDeEstudo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Situacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataTermino)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Curriculo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.InstDeEnsino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diploma)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CampoDeEstudo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Situacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataTermino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Curriculo.Address)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.FormacaoID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.FormacaoID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.FormacaoID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -48,5 +48,7 @@ namespace UniversityProject.Models
 
 
         public ICollection<HistoricoProfissional>? HistoricoProfissional { get; set; }
+
+        public ICollection<Formacao>? Formacao { get; set; }
     }
 }

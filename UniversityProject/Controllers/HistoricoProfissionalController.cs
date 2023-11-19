@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -29,6 +30,13 @@ namespace UniversityProject.Controllers
         // GET: HistoricoProfissional/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+
+            ClaimsPrincipal userPrincipal = HttpContext.User; // Isso pode variar dependendo do contexto (ASP.NET MVC, ASP.NET Core, etc.)
+            ClaimsIdentity userIdentity = userPrincipal.Identity as ClaimsIdentity;
+            //ID DO USUARIO LOGADO
+            var userID = userIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+
             if (id == null || _context.HistoricoProfissional == null)
             {
                 return NotFound();
@@ -58,7 +66,7 @@ namespace UniversityProject.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("HistoricoProfissinalID,Cargo,Empregador,Cidade,Estado,DataInicio,DataTermino,CurriculoID")] HistoricoProfissional historicoProfissional)
-        {
+        {   
             if (ModelState.IsValid)
             {
                 _context.Add(historicoProfissional);
@@ -68,7 +76,7 @@ namespace UniversityProject.Controllers
             ViewData["CurriculoID"] = new SelectList(_context.Curriculo, "CurriculoID", "Objetive", historicoProfissional.CurriculoID);
             return View(historicoProfissional);
         }
-
+        
         // GET: HistoricoProfissional/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
