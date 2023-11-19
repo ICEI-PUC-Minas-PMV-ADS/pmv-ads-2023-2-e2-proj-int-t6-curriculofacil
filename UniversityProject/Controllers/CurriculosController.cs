@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -25,8 +27,15 @@ namespace UniversityProject.Controllers
         // GET: Curriculos
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Curriculo.Include(c => c.Usuario);
-            return View(await applicationDbContext.ToListAsync());
+            //faz só os curriculos que o usuario criou aparecerem
+            ClaimsPrincipal userPrincipal = HttpContext.User;
+            ClaimsIdentity userIdentity = userPrincipal.Identity as ClaimsIdentity;
+            //ID DO USUARIO LOGADO
+            var userID = userIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
+            int userIDConvert = Convert.ToInt32(userID);
+
+            var curriculos = await _context.Curriculo.Where(c => c.Usuario.ID == userIDConvert).ToListAsync();
+            return View(curriculos);
         }
 
         // GET: Curriculos/Details/5
@@ -66,10 +75,18 @@ namespace UniversityProject.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                   //salva o id do usuario logado no curriculo
+                    var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                    int IdConvertido = Convert.ToInt32(userId);
+                  
+                    curriculo.UsuarioId = IdConvertido;
+           
                     _context.Add(curriculo);
                     await _context.SaveChangesAsync();
-                    return RedirectToAction("Create","Formacao");
+
+                    return RedirectToAction("Create", "Formacao");
                 }
+
                 ViewData["UsuarioId"] = new SelectList(_context.Usuario, "ID", "ID", curriculo.UsuarioId);
                 return View(curriculo);
             }
@@ -118,6 +135,10 @@ namespace UniversityProject.Controllers
             {
                 try
                 {
+                    //salva o id do usuario logado
+                    var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                    int IdConvertido = Convert.ToInt32(userId);
+                    curriculo.UsuarioId = IdConvertido;
                     _context.Update(curriculo);
                     await _context.SaveChangesAsync();
                 }

@@ -33,7 +33,7 @@ namespace UniversityProject.Models
         [ForeignKey("CurriculoID")]
         public int CurriculoID { get; set; }
 
-        public Curriculo? Curriculo { get; set; }
+        public Curriculo Curriculo { get; set; }
 
     }
 }

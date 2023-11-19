@@ -101,7 +101,7 @@ namespace UniversityProject.Controllers
             try
             {
 
-                ClaimsPrincipal userPrincipal = HttpContext.User; // Isso pode variar dependendo do contexto (ASP.NET MVC, ASP.NET Core, etc.)
+                ClaimsPrincipal userPrincipal = HttpContext.User;
                 ClaimsIdentity userIdentity = userPrincipal.Identity as ClaimsIdentity;
                 //ID DO USUARIO LOGADO
                 var userID = userIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
