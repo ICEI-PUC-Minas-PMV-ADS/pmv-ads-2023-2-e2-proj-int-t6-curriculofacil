@@ -20,6 +20,7 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     <a href="/Curriculos/Create" class="btn btn-custom btn-lg w-100 mb-2">Criar Currículo</a>
+                    <a href="/Curriculos" class="btn btn-custom btn-lg w-100 mb-2">Meus Currículos</a>
                     var perfilClaim = User.FindFirst(ClaimTypes.Role);
                     var userPerfil = perfilClaim != null ? perfilClaim.Value : "";
 
