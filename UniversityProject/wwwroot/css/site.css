@@ -26,11 +26,12 @@ body {
     background-color: #1b263b;
     border-color: #1b263b;
 }
-    .btn-custom:hover {
-        color: #fff;
-        background-color: #415a77;
-        border-color: #415a77;
-    }
+
+.btn-custom:hover {
+    color: #fff;
+    background-color: #415a77;
+    border-color: #415a77;
+}
 
 
 h3 {

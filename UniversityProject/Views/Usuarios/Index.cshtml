@@ -4,11 +4,9 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Gerenciar usuários</h1>
+<h1 class="h3 mb-3 mt-5 fw-normal">Gerenciar Perfil</h1>
+<hr class="mb-5" />
 
-<p>
-    <a class="btn btn-custom" asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -17,6 +15,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Pass)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
             </th>
             <th></th>
         </tr>
@@ -31,9 +32,12 @@
                 @Html.DisplayFor(modelItem => item.Pass)
             </td>
             <td>
-                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a class="btn btn-custom" asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.ID">Editar</a> |
+                <a class="btn btn-custom" asp-action="Details" asp-route-id="@item.ID">Detalhes</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ID">Apagar</a>
             </td>
         </tr>
 }
