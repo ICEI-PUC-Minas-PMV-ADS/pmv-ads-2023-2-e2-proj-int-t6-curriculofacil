@@ -24,7 +24,7 @@ Projeto que está sendo desenvolvido, é uma plataforma simplificada e de fácil
 
 Primeira versão funcional do sistema.
 
-LINK DE ACESSO <a href="https://curriculofacil.azurewebsites.net/">CurriculoFacil</a>
+LINK DE ACESSO <a href="https://curriculofacil.azurewebsites.net/">CurriculoFacil.</a>
 
 Usuario = usuario padrão da aplicação (direitos de criar, ver curriculos criados)
 Empresa = usuario tipo empresa(direitos criar curriculos e pesquisar curriculos)
