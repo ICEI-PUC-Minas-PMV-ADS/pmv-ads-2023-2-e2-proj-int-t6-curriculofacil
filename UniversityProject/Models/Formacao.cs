@@ -13,13 +13,10 @@ namespace UniversityProject.Models
         [Required(ErrorMessage = "Obrigatorio informar o Estado")]
         [Display(Name = "Estado")]
         public string Estado { get; set; }
-        [Display(Name = "Diploma")]
-        [Required(ErrorMessage = "Obrigatorio informar o Diploma")]
-        public string Diploma { get; set; }
-        [Display(Name = "Campo de estudo")]
-        [Required(ErrorMessage = "Obrigatorio informar o Campo de estudo")]
-        public string CampoDeEstudo { get; set; }
-        [Required(ErrorMessage = "Obrigatorio informar o Situação")]
+        [Display(Name = "Curso")]
+        [Required(ErrorMessage = "Obrigatorio informar o Curso")]
+        public string CampoDeEstudo{ get; set; }
+        [Required(ErrorMessage = "Obrigatorio informar a Situação")]
         [Display(Name ="Situação")]
         public string Situacao { get; set; }
         [Display(Name = "Data de inicio")]
