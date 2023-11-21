@@ -12,8 +12,8 @@ using UniversityProject.Data;
 namespace UniversityProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231119144132_MD07-FormacaoDB")]
-    partial class MD07FormacaoDB
+    [Migration("20231121192115_MD07-AlteracoesTableFormacao")]
+    partial class MD07AlteracoesTableFormacao
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -95,10 +95,6 @@ namespace UniversityProject.Migrations
 
                     b.Property<DateTime>("DataTermino")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Diploma")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Estado")
                         .IsRequired()

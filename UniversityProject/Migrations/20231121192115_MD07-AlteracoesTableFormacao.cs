@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace UniversityProject.Migrations
 {
     /// <inheritdoc />
-    public partial class MD07FormacaoDB : Migration
+    public partial class MD07AlteracoesTableFormacao : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,7 +19,6 @@ namespace UniversityProject.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     InstDeEnsino = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Estado = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Diploma = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CampoDeEstudo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Situacao = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DataInicio = table.Column<DateTime>(type: "datetime2", nullable: false),

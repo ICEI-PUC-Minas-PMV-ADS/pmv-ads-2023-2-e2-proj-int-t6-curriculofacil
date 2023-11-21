@@ -93,10 +93,6 @@ namespace UniversityProject.Migrations
                     b.Property<DateTime>("DataTermino")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Diploma")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Estado")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

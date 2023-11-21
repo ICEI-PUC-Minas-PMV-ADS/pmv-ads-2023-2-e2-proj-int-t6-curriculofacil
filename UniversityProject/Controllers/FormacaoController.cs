@@ -63,7 +63,7 @@ namespace UniversityProject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FormacaoID,InstDeEnsino,Estado,Diploma,CampoDeEstudo,Situacao,DataInicio,DataTermino,CurriculoID")] Formacao formacao)
+        public async Task<IActionResult> Create([Bind("FormacaoID,InstDeEnsino,Estado,CampoDeEstudo,Situacao,DataInicio,DataTermino,CurriculoID")] Formacao formacao)
         {
             if (ModelState.IsValid)
             {
@@ -108,7 +108,7 @@ namespace UniversityProject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int curriculoIDpraEdit, [Bind("FormacaoID,InstDeEnsino,Estado,Diploma,CampoDeEstudo,Situacao,DataInicio,DataTermino")] Formacao formacao)
+        public async Task<IActionResult> Edit(int curriculoIDpraEdit, [Bind("FormacaoID,InstDeEnsino,Estado,CampoDeEstudo,Situacao,DataInicio,DataTermino")] Formacao formacao)
         {
             if (curriculoIDpraEdit != formacao.CurriculoID)
             {
