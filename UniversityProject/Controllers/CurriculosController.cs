@@ -41,6 +41,7 @@ namespace UniversityProject.Controllers
         // GET: Curriculos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+
             if (id == null || _context.Curriculo == null)
             {
                 return NotFound();
@@ -49,12 +50,39 @@ namespace UniversityProject.Controllers
             var curriculo = await _context.Curriculo
                 .Include(c => c.Usuario)
                 .FirstOrDefaultAsync(m => m.CurriculoID == id);
+
             if (curriculo == null)
             {
                 return NotFound();
             }
 
-            return View(curriculo);
+            // Obter os dados de Formacao
+            var formacao = await _context.Formacao
+                .Where(f => f.CurriculoID == id)
+                .ToListAsync();
+
+            // Obter os dados de HistoricoProfissional
+            var historicoProfissional = await _context.HistoricoProfissional
+                .Where(h => h.CurriculoID == id)
+                .ToListAsync();
+
+            // Selecione o primeiro objeto da lista
+            var primeiroFormacao = formacao.FirstOrDefault();
+            var primeiroHistoricoProfissional = historicoProfissional.FirstOrDefault();
+
+            // Construir o objeto CurriculoPronto
+            var curriculoPronto = new CurriculoPronto
+            {
+                DadosCurriculo = curriculo,
+                DadosFormacao = primeiroFormacao,
+                DadosHisProf = primeiroHistoricoProfissional
+            };
+            if (curriculo == null)
+            {
+                return NotFound();
+            }
+
+            return View(curriculoPronto);
         }
 
         // GET: Curriculos/Create
