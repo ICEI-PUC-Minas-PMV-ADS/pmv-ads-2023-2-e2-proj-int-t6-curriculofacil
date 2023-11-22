@@ -8,13 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="wwwroot\NovaPasta\**" />
-    <Content Remove="wwwroot\NovaPasta\**" />
-    <EmbeddedResource Remove="wwwroot\NovaPasta\**" />
-    <None Remove="wwwroot\NovaPasta\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Remove="Models\ViewModelCombinado.cs" />
   </ItemGroup>
 
@@ -30,11 +23,14 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+    <PackageReference Include="Rotativaio.AspNetCore" Version="1.4.0" />
+    <PackageReference Include="RotativaIO.NetCore" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Data\Enum\" />
     <Folder Include="wwwroot\img\" />
+    <Folder Include="wwwroot\Rotativa\" />
   </ItemGroup>
 
 </Project>

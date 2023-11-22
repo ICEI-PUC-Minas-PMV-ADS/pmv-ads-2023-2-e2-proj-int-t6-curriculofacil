@@ -1,10 +1,14 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using UniversityProject.Data;
+using RotativaIO;
+using Rotativaio.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddRotativaIo("https://useast.rotativahq.com", "bf67edfabc864c11b3caf19abb4779e2");
+
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();

@@ -8,8 +8,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Rotativaio.AspNetCore;
 using UniversityProject.Data;
 using UniversityProject.Models;
+
 
 
 namespace UniversityProject.Controllers
@@ -103,12 +105,12 @@ namespace UniversityProject.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                   //salva o id do usuario logado no curriculo
+                    //salva o id do usuario logado no curriculo
                     var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                     int IdConvertido = Convert.ToInt32(userId);
-                  
+
                     curriculo.UsuarioId = IdConvertido;
-           
+
                     _context.Add(curriculo);
                     await _context.SaveChangesAsync();
 
@@ -117,7 +119,7 @@ namespace UniversityProject.Controllers
                     return RedirectToAction("Create", "Formacao", new { idPrimeiroRegistro });
                     //return RedirectToAction("Create", "Formacao");
                     //TESTES
-                
+
 
                 }
 
@@ -130,7 +132,7 @@ namespace UniversityProject.Controllers
                 // Você pode usar o mecanismo de log ou simplesmente exibi-la no console.
                 Console.WriteLine(ex);
                 Console.WriteLine("ERRO");
-              
+
                 // Redirecione para uma página de erro ou faça outra ação adequada em caso de exceção.
                 // Por exemplo, você pode redirecionar para uma página de erro personalizada.
                 return View("Erro"); // Página de erro personalizada
@@ -229,14 +231,14 @@ namespace UniversityProject.Controllers
             {
                 _context.Curriculo.Remove(curriculo);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CurriculoExists(int id)
         {
-          return (_context.Curriculo?.Any(e => e.CurriculoID == id)).GetValueOrDefault();
+            return (_context.Curriculo?.Any(e => e.CurriculoID == id)).GetValueOrDefault();
         }
 
 
@@ -244,7 +246,21 @@ namespace UniversityProject.Controllers
         public async Task<IActionResult> Find()
         {
             var applicationDbContext = _context.Curriculo.Include(c => c.Usuario);
-            return View(await applicationDbContext.ToListAsync()); 
+            return View(await applicationDbContext.ToListAsync());
+        }
+        //GERANDO PDF DO CURRICULO
+        public IActionResult GerarPdf()
+        {
+
+            var pdf = new ViewAsPdf("Details")
+            {
+                FileName = "Curriculo.pdf",
+                PageSize = Rotativaio.AspNetCore.Size.A4,
+                CustomSwitches = "--print-media-type",
+                PageOrientation = Orientation.Portrait
+            };
+
+            return pdf;
         }
     }
 }
