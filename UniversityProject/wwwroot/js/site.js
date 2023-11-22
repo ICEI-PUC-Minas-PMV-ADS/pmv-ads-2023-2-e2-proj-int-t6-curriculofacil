@@ -2,6 +2,7 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+//JS da parte de busca
 function search() {
     var input, filter, cards, card, title, description, item1, item2, i;
     input = document.getElementById('search');
@@ -26,3 +27,25 @@ function search() {
         }
     }
 }
+
+// JS parte de download do currículo
+const btnGenerate = document.querySelector("#generate-pdf");
+
+btnGenerate.addEventListener("click", () => {
+    // Conteúdo do PDF
+    const content = document.querySelector("#content");
+
+    // Configuração do arquivo final PDF
+    const options = {
+        margin: [10, 10, 10, 10],
+        filename: "Curriculo.pdf",
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
+    };
+
+    console.log("testes");
+
+    // Gerar e baixar o PDF
+    //window.html2pdf().set(options).from(content).save();
+    html2pdf().set(options).from(content).save();
+});
