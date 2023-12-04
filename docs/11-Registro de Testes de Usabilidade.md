@@ -26,8 +26,12 @@ Pergunta 2: Em uma escala de 1 a 3, quão eficiente foi nossa ferramenta de pers
 Pergunta 3: Em uma escala de 1 a 3, quão suficiente foi a quantidade de características e informações disponíveis para editar seu currículo em nossa plataforma?
 
 Plano de teste 3: Exportação e compartilhamento 
+
 Objetivo: Avaliar a facilidade de exportar e compartilhar o currículo criado.
-SEM RECURSOS
+
+Pergunta 1: Em uma escala de 1 a 3, quão fácil foi exportar seu currículo criado para outros formatos de documento?
+Pergunta 2: Em uma escala de 1 a 3, quão eficiente foi nossa ferramenta de exportação de arquivo?
+Pergunta 3: Em uma escala de 1 a 3, quão suficiente foram as nossas ferramentas de download e conversor de documento?
 
 Plano de teste 4: Resolução de problemas
 •	Objetivo: Avaliar como o sistema lida com erros e problemas durante a criação do currículo.
@@ -46,7 +50,9 @@ Pergunta 1 / Resposta: 3
 Pergunta 2 / Resposta: 3
 Pergunta 3 / Resposta: 2
 Plano de testes 3:
-Sem respostas
+Pergunta 1 / Resposta: 3
+Pergunta 2 / Resposta: 3
+Pergunta 3 / Resposta: 3
 Plano de testes 4:
 Pergunta 1 / Resposta: 3
 Pergunta 2 / Resposta: 2
@@ -62,7 +68,9 @@ Pergunta 1 / Resposta: 3
 Pergunta 2 / Resposta: 3
 Pergunta 3 / Resposta: 2
 Plano de testes 3:
-Sem respostas
+Pergunta 1 / Resposta: 3
+Pergunta 2 / Resposta: 3
+Pergunta 3 / Resposta: 3
 Plano de testes 4:
 Pergunta 1 / Resposta: 3
 Pergunta 2 / Resposta: 3
