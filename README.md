@@ -6,6 +6,8 @@
 
 `2º SEMESTRE`
 
+<img src="docs/img/logoSite.jpg" width="40%" alt="Logo">
+
 Projeto que está sendo desenvolvido, é uma plataforma simplificada e de fácil utilização para produção e procura de curriculos.
 
 ## Integrantes
