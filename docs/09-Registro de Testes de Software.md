@@ -7,7 +7,9 @@ Para cada caso de teste definido no Plano de Testes de Software segue o registro
 ## AvaliaçãoRegistro de testes de Software
 Registro de testes de Software
 
-·        CT-01 Caso de teste 1: Acesso de usuário 
+
+-        CT-01 Caso de teste 1: Acesso de usuário 
+
 
 Requisito Referente: (RF-01) O usuário deve possuir acesso de maneira simplificada a plataforma, ao utilizar seu e-mail e senha como chaves de acesso a mesma.  
 
@@ -27,25 +29,25 @@ Etapas do teste:
 
 Etapa 1 – Abertura do site. Assim que entrar no site, irá se deparar com esta tela.
 
-![](file:///C:\Users\RYZENV~1\AppData\Local\Temp\OICE_13386CB8-48BD-488A-8AA5-48DD2757CA76.0\msohtmlclip1\01\clip_image002.gif)
+<img src="img/01.png">
 
 Etapa 2 – Selecionar opção de cadastro. Após a abertura do site, selecione a opção no canto superior direito da tela no qual se diz cadastrar.
 
-![](file:///C:\Users\RYZENV~1\AppData\Local\Temp\OICE_13386CB8-48BD-488A-8AA5-48DD2757CA76.0\msohtmlclip1\01\clip_image004.gif)
+<img src="img/02.jpg">
 
 Etapa 3 – Preencher suas informações pessoais necessárias para o cadastro de conta. Dependendo da intenção do usuário ao entrar na plataforma, ele deverá selecionar a opção Empresa Ou usuário.
 
-![](file:///C:\Users\RYZENV~1\AppData\Local\Temp\OICE_13386CB8-48BD-488A-8AA5-48DD2757CA76.0\msohtmlclip1\01\clip_image006.gif)
+<img src="img/03.jpg">
 
 Etapa 4 – Após as informações preenchidas, o usuário ao confirmar cadastro deve ser redirecionado para a tela inicial pós criação de conta.
 
-![](file:///C:\Users\RYZENV~1\AppData\Local\Temp\OICE_13386CB8-48BD-488A-8AA5-48DD2757CA76.0\msohtmlclip1\01\clip_image008.gif)
+<img src="img/04.jpg">
 
 Etapa 5 (Final) – Para que o teste seja devidamente efetivado com sucesso, o software deve mostrar o nome do usuário no canto superior direito da tela.
 
-![](file:///C:\Users\RYZENV~1\AppData\Local\Temp\OICE_13386CB8-48BD-488A-8AA5-48DD2757CA76.0\msohtmlclip1\01\clip_image010.gif)
+<img src="img/05.jpg">
 
-·        Caso de teste 2: Personalização de currículo 
+-        Caso de teste 2: Personalização de currículo 
 
 Requisito Referente: (RF-02/RF-03/RF-10) O usuário deve ter a possibilidade de customização de seu currículo, adicionando e mudando informações existentes, além do uso de estilos inseridos previamente no desenvolvimento da página para tornar os currículos mais agradáveis e únicos. 
 
@@ -67,25 +69,35 @@ Etapas do teste:
 
 Etapa 1 – Seguimento para criação de currículo. Após direcionamento para a página inicial, o usuário deve clicar na opção de criar currículo.
 
-![](file:///C:\Users\RYZENV~1\AppData\Local\Temp\OICE_13386CB8-48BD-488A-8AA5-48DD2757CA76.0\msohtmlclip1\01\clip_image012.gif)
-
+<img src="img/06.jpg">
 Etapa 2 – O usuário é redirecionado ao criador de currículo, onde o mesmo deve preencher suas informações precisas para serem geradas e finalmente alocadas ao currículo final.
 
-![](file:///C:\Users\RYZENV~1\AppData\Local\Temp\OICE_13386CB8-48BD-488A-8AA5-48DD2757CA76.0\msohtmlclip1\01\clip_image014.gif)
+<img src="img/07.jpg">
+
+<img src="img/16.jpg">
+
+<img src="img/17.jpg">
 
 Etapa 3 – Após finalizar o currículo, o usuário é levado a aba de meus currículos, onde pode ver detalhes do currículo criado, editar, deletar e criar novos currículos.
 
-![](file:///C:\Users\RYZENV~1\AppData\Local\Temp\OICE_13386CB8-48BD-488A-8AA5-48DD2757CA76.0\msohtmlclip1\01\clip_image016.gif)
+<img src="img/08.jpg">
 
 Etapa 3.2 – Caso o usuário clique em detalhes, será redirecionado as informações do currículo prontas.
 
- ![](file:///C:\Users\RYZENV~1\AppData\Local\Temp\OICE_13386CB8-48BD-488A-8AA5-48DD2757CA76.0\msohtmlclip1\01\clip_image018.gif)
+<img src="img/09.jpg">
 
-Etapa 4(Final) – Após clicar em detalhes, a funcionalidade se apresentará pronta e efetiva ao trazer todas as informações previamente ditas durante o cadastro do curríclo.
 
-![](file:///C:\Users\RYZENV~1\AppData\Local\Temp\OICE_13386CB8-48BD-488A-8AA5-48DD2757CA76.0\msohtmlclip1\01\clip_image020.gif)
+Etapa 4 – Após clicar em detalhes, a funcionalidade se apresentará pronta e efetiva ao trazer todas as informações previamente ditas durante o cadastro do curríclo.
 
-·        Caso de teste 3: Filtragem e buscas 
+<img src="img/10.jpg">
+
+Etapa 5 (Final) – Após visualizar o currículo, o usuário pode desfrutar do mesmo completamente formatado em PDF e pronto para ser compartilhado ao clicar na opção em Amarelo escrita baixar.
+
+<img src="img/18.jpg">
+
+<img src="img/19.jpg">
+
+- Caso de teste 3: Filtragem e buscas 
 
 Requisitos Referentes: (RF-07/RF-09) A plataforma precisa fornecer uma fácil opção de busca por currículos e juntamente uma ferramenta de filtragem por capacidades e especializações dos candidatos a busca de vagas. 
 
@@ -105,21 +117,26 @@ Etapas do teste:
 
 Etapa 1 – Criação de um perfil com funcionalidades diferentes. Para que o usuário tenha acesso a busca de currículos, o mesmo deve retornar a criação de contas
 
-<img src="img/01.png">
+<img src="img/11.jpg">
 
 Etapa 2 – O usuário deve clicar na opção de Perfil de usuário oferecida na aba realizar cadastro e optar pela opção Empresa e logo, clicar em cadastrar.
 
-<img src="img/02.jpg">
+<img src="img/12.jpg">
 
 Etapa 3 – Liberação da busca por currículos. Após realizar o cadastro como Empresa, o usuário é redirecionado a página inicial tendo a funcionalidade buscar currículos liberada para uso.
 
-![](file:///C:\Users\RYZENV~1\AppData\Local\Temp\OICE_13386CB8-48BD-488A-8AA5-48DD2757CA76.0\msohtmlclip1\01\clip_image025.gif)
+<img src="img/13.jpg">
 
-Etapa 4(Final) – Após clicar na opção Procurar Currículos, a ferramenta se mostra efetiva ao mostrar ao usuário todos currículos pré-cadastrados por outros usuários da plataforma.
+Etapa 4(Final) – Após clicar na opção Procurar Currículos, a ferramenta se mostra efetiva ao mostrar ao usuário todos currículos pré-cadastrados por outros usuários da plataforma, tendo também opção de busca por lupa por todos currículos cadastrados no sistema.
 
-![](file:///C:\Users\RYZENV~1\AppData\Local\Temp\OICE_13386CB8-48BD-488A-8AA5-48DD2757CA76.0\msohtmlclip1\01\clip_image027.gif)
+<img src="img/15.jpg">
+<img src="img/20.jpg">
+<img src="img/21.jpg">
 
-·        Caso de teste 4: Enriquecimento e compatibilidade 
+
+-       Caso de teste 4: Enriquecimento e compatibilidade 
+
+
 
 Requisitos Referentes: (RF-08/RF-09/RF-10) A plataforma deve entregar funcionalidades com compatibilidade e integração a outras redes sociais do usuário cadastrado, a ponto de 
 
