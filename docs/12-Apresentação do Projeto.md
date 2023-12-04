@@ -7,7 +7,7 @@ https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t6-curricul
 
 Currículo Fácil
 
-[Acessar Site]()
+[Acessar Site](https://curriculofacil.azurewebsites.net/)
 
 ## Identidade Visual (Marca, Design)
 
