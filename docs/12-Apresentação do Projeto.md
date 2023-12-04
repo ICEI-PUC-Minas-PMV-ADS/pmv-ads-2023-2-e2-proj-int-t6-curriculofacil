@@ -1,28 +1,22 @@
 # Apresentação
+Apresentação em vídeo do Projeto:
 
-<span style="color:red">Pré-requisitos: Todos os demais artefatos</span>
-
-Conjunto de slides em um arquivo PowerPoint ou PDF com a apresentação do projeto contemplando todos os itens trabalhados nos demais artefatos.
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t6-curriculofacil/blob/main/presentation/3.%20Apresenta%C3%A7%C3%A3o%20Final%20Entrega%20do%20Projeto/Apresenta%C3%A7%C3%A3o_Final_Projeto.mkv
 
 ## Título do Projeto
 
-Nome e marca do projeto
+Currículo Fácil
+
+[Acessar Site]()
 
 ## Identidade Visual (Marca, Design)
 
 <img src="img/logoSite.jpg" width="45%" alt="Logo">
 
 <img src="img/PaletaCores-final.png"> 
-> **Links Úteis**:
-> - [10 dicas de design para slides](https://rockcontent.com/blog/design-para-slides/)
-> - [7 dicas de design para criar apresentações de PowerPoint incríveis e eficientes](https://www.shutterstock.com/pt/blog/7-dicas-de-design-para-criar-apresentacoes-de-powerpoint-incriveis-e-eficientes)
-> - [Especialista do TED dá 10 dicas para criar slides eficazes e bonitos](https://soap.com.br/blog/especialista-do-ted-da-10-dicas-para-criar-slides-eficazes-e-bonitos)
 
 ## Conjunto de Slides (Estrutura)
 
-O grupo deve distribuir de forma coerente o conteúdo a ser apresentado, dentro do tempo determinado. Importante ressaltar a importância da descrição clara de todo o andamento do projeto, insumos gerados e requisitos atendidos.
+Apresentação final da solução desenvolvida
  
-> **Links Úteis**:
-> - [A regra 10-20-30 para apresentações de sucesso](https://revistapegn.globo.com/Noticias/noticia/2014/07/regra-10-20-30-para-apresentacoes-de-sucesso.html)
-> - [Top Tips for Effective Presentations](https://www.skillsyouneed.com/present/presentation-tips.html)
-> - [How to make a great presentation](https://www.ted.com/playlists/574/how_to_make_a_great_presentation)
+[Apresentação da solução - CurriculoFacil.pdf](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t6-curriculofacil/blob/main/presentation/3.%20Apresenta%C3%A7%C3%A3o%20Final%20Entrega%20do%20Projeto/Curr%C3%ADculo%20f%C3%A1cil%20Final.pdf)
