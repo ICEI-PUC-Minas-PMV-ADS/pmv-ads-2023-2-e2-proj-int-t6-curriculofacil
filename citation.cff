@@ -1,0 +1,23 @@
+message: Please cite this software using these metadata.
+title: Currículo Fácil
+authors:
+  - family-names: Ribeiro Mesquita
+    given-names: Philippe
+  - family-names: Jneesh Afonso
+    given-names: Mahavishnu
+  - family-names: Cesar Amaral Gomes
+    given-names: Allan
+  - family-names: Pereira da Silva
+    given-names: João Gabriel
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Jeunon de Alencar
+    given-names: Bernardo
+keywords:
+  - Cadastro de Currículos
+  - Edição
+  - Networking
+  - Contratação
+repository-code: https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t6-curriculofacil
+version: 1.0.0
+date-released: 2023-10-22
