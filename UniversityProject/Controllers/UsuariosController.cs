@@ -4,6 +4,8 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +14,7 @@ using UniversityProject.Models;
 
 namespace UniversityProject.Controllers
 {
+    [Authorize]
     public class UsuariosController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -20,7 +23,13 @@ namespace UniversityProject.Controllers
         {
             _context = context;
         }
+        [AllowAnonymous]
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
 
+        [AllowAnonymous]
         public IActionResult Login()
         {
             return View();
@@ -28,6 +37,7 @@ namespace UniversityProject.Controllers
 
         //POST: Login
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Login(Usuario usuario)
         {
             //String teste = "teste@gmail.com";
@@ -50,7 +60,7 @@ namespace UniversityProject.Controllers
 
                     new Claim(ClaimTypes.Name, userExistence.Name),
                     new Claim(ClaimTypes.NameIdentifier, userExistence.ID.ToString()),
-                    //new Claim(ClaimTypes.Role, userExistence.Name.ToString())
+                    new Claim(ClaimTypes.Role, userExistence.Perfil.ToString())
                 };
 
                 var usuarioIdentity = new ClaimsIdentity(claims, "login");
@@ -77,19 +87,36 @@ namespace UniversityProject.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public  async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
 
-            return RedirectToAction("Login", "Usuarios");
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: Usuarios
         public async Task<IActionResult> Index()
         {
-              return _context.Usuario != null ? 
-                          View(await _context.Usuario.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Usuario'  is null.");
+            try
+            {
+
+                ClaimsPrincipal userPrincipal = HttpContext.User;
+                ClaimsIdentity userIdentity = userPrincipal.Identity as ClaimsIdentity;
+                //ID DO USUARIO LOGADO
+                var userID = userIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
+                int userIDConvert =  Convert.ToInt32(userID);
+                var usuarios = await _context.Usuario.Where(u => u.ID == userIDConvert).ToListAsync();
+                if (_context.Usuario == null)
+                {
+                    return Problem("Entity set 'ApplicationDbContext.Usuario' is null.");
+                }
+                return View(usuarios);
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message);
+            }
         }
 
         // GET: Usuarios/Details/5
@@ -109,26 +136,26 @@ namespace UniversityProject.Controllers
 
             return View(usuario);
         }
-
+        [AllowAnonymous]
         // GET: Usuarios/Create
         public IActionResult Create()
         {
             return View();
         }
-
+        [AllowAnonymous]
         // POST: Usuarios/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Email,Pass")] Usuario usuario)
+        public async Task<IActionResult> Create([Bind("ID,Name,Email,Pass,Perfil")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-                //return RedirectToAction("Login");
+                //return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Login));
             }
             return View(usuario);
         }
@@ -154,7 +181,7 @@ namespace UniversityProject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Pass")] Usuario usuario)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Pass,Email")] Usuario usuario)
         {
             if (id != usuario.ID)
             {

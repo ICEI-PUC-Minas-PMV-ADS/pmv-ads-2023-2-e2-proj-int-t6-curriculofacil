@@ -1,4 +1,5 @@
-﻿@{
+﻿@using System.Security.Claims;
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -14,6 +15,24 @@
                 minutos
             </h1>
             <p class="lead">Preencha seus dados pessoais e profissionais. Depois, é só fazer download.</p>
+
+            <div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a href="/Curriculos/Create" class="btn btn-custom btn-lg w-100 mb-2">Criar Currículo</a>
+                    <a href="/Curriculos" class="btn btn-custom btn-lg w-100 mb-2">Meus Currículos</a>
+                    var perfilClaim = User.FindFirst(ClaimTypes.Role);
+                    var userPerfil = perfilClaim != null ? perfilClaim.Value : "";
+
+                    if(userPerfil == "Empresa")
+                    {
+                        <a class="btn btn-custom btn-lg w-100" asp-controller="/Curriculos" asp-action="Find">Procurar Currículos</a>
+                    }
+                }
+                else
+                {         
+                }
+            </div>
         </div>
     </div>
 </div>
